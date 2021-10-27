@@ -6,7 +6,7 @@ get '/' do
 end
 
 get '/secret' do
-  %Q|You've found the secret spot!!!|
+  "You've found the secret spot"
 end
 
 get '/random-cat' do
@@ -14,8 +14,12 @@ get '/random-cat' do
   erb(:index)
 end
 
-get '/named-cat' do
+post '/named-cat' do
   p params
   @name = params[:name]
   erb(:index)
+end
+
+get '/cat-form' do
+  erb :cat_form
 end
